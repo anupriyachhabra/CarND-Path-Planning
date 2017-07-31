@@ -8,6 +8,8 @@
 #include "Eigen-3.3/Eigen/Core"
 #include "Eigen-3.3/Eigen/QR"
 #include "json.hpp"
+#include "hw/road.h"
+
 
 using namespace std;
 
@@ -18,7 +20,9 @@ using json = nlohmann::json;
 constexpr double pi() { return M_PI; }
 double deg2rad(double x) { return x * pi() / 180; }
 double rad2deg(double x) { return x * 180 / pi(); }
+void updateRoad(json fusion);
 
+Road road;
 // Checks if the SocketIO event has JSON data.
 // If there is data the JSON object in string format will be returned,
 // else the empty string "" will be returned.
@@ -232,11 +236,21 @@ int main() {
 
           	// Sensor Fusion Data, a list of all other cars on the same side of the road.
           	auto sensor_fusion = j[1]["sensor_fusion"];
+            updateRoad(sensor_fusion);
 
           	json msgJson;
 
           	vector<double> next_x_vals;
           	vector<double> next_y_vals;
+
+						// TODO: Project hint 1 below remove
+						/*double dist_inc = 0.5;
+						for(int i = 0; i < 50; i++)
+						{
+							next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
+							next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
+						}*/
+
 
 
           	// TODO: define a path made up of (x,y) points that the car will visit sequentially every .02 seconds
@@ -289,6 +303,17 @@ int main() {
     return -1;
   }
   h.run();
+}
+
+void updateRoad(json fusion) {
+
+  for (auto& element : fusion) {
+    cout << element << '\n';
+    cout << element.size() << '\n';
+    cout << element[0] << '\n';
+
+  }
+
 }
 
 
