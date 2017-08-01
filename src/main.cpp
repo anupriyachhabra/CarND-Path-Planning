@@ -9,6 +9,7 @@
 #include "Eigen-3.3/Eigen/QR"
 #include "json.hpp"
 #include "hw/road.h"
+#include "utils/spline.h"
 
 
 using namespace std;
@@ -238,18 +239,49 @@ int main() {
           	auto sensor_fusion = j[1]["sensor_fusion"];
             updateRoad(sensor_fusion);
 
+            int nextWayPoint = NextWaypoint(car_x, car_y, car_yaw, map_waypoints_x, map_waypoints_y);
+            double next_x = map_waypoints_x[nextWayPoint];
+            double next_y = map_waypoints_y[nextWayPoint];
+
           	json msgJson;
 
           	vector<double> next_x_vals;
           	vector<double> next_y_vals;
 
-						// TODO: Project hint 1 below remove
-						/*double dist_inc = 0.5;
-						for(int i = 0; i < 50; i++)
-						{
-							next_x_vals.push_back(car_x+(dist_inc*i)*cos(deg2rad(car_yaw)));
-							next_y_vals.push_back(car_y+(dist_inc*i)*sin(deg2rad(car_yaw)));
-						}*/
+						double dist_inc = 0.5;
+            double x = car_x;
+            vector<double> spline_x, spline_y;
+            spline_x.push_back(car_x);
+            spline_x.push_back(car_x+dist_inc*cos(deg2rad(car_yaw)));
+            spline_x.push_back(next_x);
+            spline_y.push_back(car_y);
+            spline_y.push_back(car_y+dist_inc*sin(deg2rad(car_yaw)));
+            spline_y.push_back(next_y);
+            tk::spline s;
+            s.set_points(spline_x,spline_y);    // currently it is required that X is already sorted
+
+          std::for_each(
+              spline_x.cbegin(),
+              spline_x.cend(),
+              [] (const double c) {std::cout << "x_spline" << c << " ";}
+          );
+
+          cout << endl;
+
+          std::for_each(
+              spline_y.cbegin(),
+              spline_y.cend(),
+              [] (const double c) {std::cout << "y_spline"<< c << " ";}
+          );
+          cout << endl;
+            cout << "x " << x << " next_x " << next_x << endl;
+            while(x <= next_x)
+              {
+                x += dist_inc;
+                next_x_vals.push_back(x);
+                next_y_vals.push_back(s(x));
+                cout << "x " << x << " y " << s(x) << endl;
+              }
 
 
 
@@ -309,9 +341,9 @@ void updateRoad(json fusion) {
   map<int, Vehicle>::iterator it;
 
   for (auto& element : fusion) {
-    cout << element << '\n';
+   // cout << element << '\n';
     int lane = element[6].get<double>()/4;
-		cout << "d " << element[6] << " Lane " << lane << '\n';
+	//	cout << "d " << element[6] << " Lane " << lane << '\n';
     double s = element[5].get<double>();
     double d = element[6].get<double>();
     double vx = element[3].get<double>();
@@ -319,7 +351,7 @@ void updateRoad(json fusion) {
     int vehicleId = element[0].get<int>();
 
     //  Add only lanes on right side
-    if (0 <= lane <=2) {
+    if (lane >=0 && lane <=2) {
       it = road.vehicles.find(vehicleId);
       if (it != road.vehicles.end()) {
         Vehicle vehicle = it->second;

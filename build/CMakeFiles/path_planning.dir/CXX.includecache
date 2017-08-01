@@ -995,6 +995,8 @@ json.hpp
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/json.hpp
 hw/road.h
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/hw/road.h
+utils/spline.h
+/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/utils/spline.h
 
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/utils/CoefficientSolver.cpp
 CoefficientSolver.h
@@ -1019,6 +1021,16 @@ CostFunctions.h
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/utils/CostFunctions.h
 
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/utils/CostFunctions.h
+
+/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/utils/spline.h
+cstdio
+-
+cassert
+-
+vector
+-
+algorithm
+-
 
 /usr/local/include/pthread-barrier.h
 errno.h

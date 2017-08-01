@@ -182,6 +182,7 @@ CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/hw/road.h
 CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/hw/vehicle.h
 CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/json.hpp
 CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/utils/spline.h
 CMakeFiles/path_planning.dir/src/main.cpp.o: /usr/local/include/pthread-barrier.h
 CMakeFiles/path_planning.dir/src/main.cpp.o: /usr/local/include/uWS/Extensions.h
 CMakeFiles/path_planning.dir/src/main.cpp.o: /usr/local/include/uWS/Group.h
