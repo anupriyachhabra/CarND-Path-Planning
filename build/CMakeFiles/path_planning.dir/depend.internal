@@ -4,15 +4,15 @@
 CMakeFiles/path_planning.dir/src/Behavior.cpp.o
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Behavior.cpp
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Behavior.h
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o
- /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.cpp
- /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.h
 CMakeFiles/path_planning.dir/src/Prediction.cpp.o
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Prediction.cpp
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Prediction.h
 CMakeFiles/path_planning.dir/src/StateMachine.cpp.o
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/StateMachine.cpp
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/StateMachine.h
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o
+ /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.cpp
+ /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.h
 CMakeFiles/path_planning.dir/src/hw/road.cpp.o
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/hw/road.cpp
  /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/hw/road.h

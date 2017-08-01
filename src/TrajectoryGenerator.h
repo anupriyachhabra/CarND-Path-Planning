@@ -6,7 +6,7 @@
 #define PATH_PLANNING_JMTGENERATOR_H
 
 
-class JMTGenerator {
+class TrajectoryGenerator {
 
 };
 

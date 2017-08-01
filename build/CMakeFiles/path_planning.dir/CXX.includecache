@@ -820,12 +820,6 @@ lapacke_mangling.h
 
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Eigen-3.3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
-/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.cpp
-JMTGenerator.h
-/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.h
-
-/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.h
-
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Prediction.cpp
 Prediction.h
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/Prediction.h
@@ -837,6 +831,12 @@ StateMachine.h
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/StateMachine.h
 
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/StateMachine.h
+
+/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.cpp
+TrajectoryGenerator.h
+/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.h
+
+/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.h
 
 /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/hw/road.cpp
 iostream

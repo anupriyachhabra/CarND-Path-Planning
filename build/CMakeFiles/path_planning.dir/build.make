@@ -177,28 +177,28 @@ CMakeFiles/path_planning.dir/src/StateMachine.cpp.o.provides: CMakeFiles/path_pl
 CMakeFiles/path_planning.dir/src/StateMachine.cpp.o.provides.build: CMakeFiles/path_planning.dir/src/StateMachine.cpp.o
 
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o: CMakeFiles/path_planning.dir/flags.make
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o: ../src/JMTGenerator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o -c /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.cpp
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o: CMakeFiles/path_planning.dir/flags.make
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o: ../src/TrajectoryGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o -c /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.cpp
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.cpp > CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.i
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.cpp > CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.i
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/JMTGenerator.cpp -o CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.s
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/achhabra/Documents/personal/Udacity/Term3/CarND-Path-Planning-Project/src/TrajectoryGenerator.cpp -o CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.s
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.requires:
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.requires:
 
-.PHONY : CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.requires
+.PHONY : CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.requires
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.provides: CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.provides.build
-.PHONY : CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.provides
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.provides: CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.provides.build
+.PHONY : CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.provides
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.provides.build: CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.provides.build: CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o
 
 
 CMakeFiles/path_planning.dir/src/utils/CostFunctions.cpp.o: CMakeFiles/path_planning.dir/flags.make
@@ -280,7 +280,7 @@ path_planning_OBJECTS = \
 "CMakeFiles/path_planning.dir/src/Behavior.cpp.o" \
 "CMakeFiles/path_planning.dir/src/utils/CoefficientSolver.cpp.o" \
 "CMakeFiles/path_planning.dir/src/StateMachine.cpp.o" \
-"CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o" \
+"CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o" \
 "CMakeFiles/path_planning.dir/src/utils/CostFunctions.cpp.o" \
 "CMakeFiles/path_planning.dir/src/hw/vehicle.cpp.o" \
 "CMakeFiles/path_planning.dir/src/hw/road.cpp.o"
@@ -293,7 +293,7 @@ path_planning: CMakeFiles/path_planning.dir/src/Prediction.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/Behavior.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/utils/CoefficientSolver.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/StateMachine.cpp.o
-path_planning: CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o
+path_planning: CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/utils/CostFunctions.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/hw/vehicle.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/hw/road.cpp.o
@@ -312,7 +312,7 @@ CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/Predicti
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/Behavior.cpp.o.requires
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/utils/CoefficientSolver.cpp.o.requires
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/StateMachine.cpp.o.requires
-CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o.requires
+CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o.requires
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/utils/CostFunctions.cpp.o.requires
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/hw/vehicle.cpp.o.requires
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/hw/road.cpp.o.requires

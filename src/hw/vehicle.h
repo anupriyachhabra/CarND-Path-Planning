@@ -33,9 +33,11 @@ public:
 
   int lane;
 
-  int s;
+  double s;
 
-  int v;
+  double vx;
+
+  double vy;
 
   int a;
 
@@ -56,10 +58,14 @@ public:
   */
   Vehicle(int lane, int s, int v, int a);
 
+  Vehicle(int lane, double s, double d, double vx, double vy, int a);
+
   /**
   * Destructor
   */
   virtual ~Vehicle();
+
+  void update(int lane, double s, double d, double vx, double vy, int a);
 
   void update_state(map<int, vector <vector<int> > > predictions);
 

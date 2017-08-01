@@ -150,33 +150,6 @@ src/Behavior.cpp.s:
 	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/Behavior.cpp.s
 .PHONY : src/Behavior.cpp.s
 
-src/JMTGenerator.o: src/JMTGenerator.cpp.o
-
-.PHONY : src/JMTGenerator.o
-
-# target to build an object file
-src/JMTGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o
-.PHONY : src/JMTGenerator.cpp.o
-
-src/JMTGenerator.i: src/JMTGenerator.cpp.i
-
-.PHONY : src/JMTGenerator.i
-
-# target to preprocess a source file
-src/JMTGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.i
-.PHONY : src/JMTGenerator.cpp.i
-
-src/JMTGenerator.s: src/JMTGenerator.cpp.s
-
-.PHONY : src/JMTGenerator.s
-
-# target to generate assembly for a file
-src/JMTGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.s
-.PHONY : src/JMTGenerator.cpp.s
-
 src/Prediction.o: src/Prediction.cpp.o
 
 .PHONY : src/Prediction.o
@@ -230,6 +203,33 @@ src/StateMachine.s: src/StateMachine.cpp.s
 src/StateMachine.cpp.s:
 	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/StateMachine.cpp.s
 .PHONY : src/StateMachine.cpp.s
+
+src/TrajectoryGenerator.o: src/TrajectoryGenerator.cpp.o
+
+.PHONY : src/TrajectoryGenerator.o
+
+# target to build an object file
+src/TrajectoryGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o
+.PHONY : src/TrajectoryGenerator.cpp.o
+
+src/TrajectoryGenerator.i: src/TrajectoryGenerator.cpp.i
+
+.PHONY : src/TrajectoryGenerator.i
+
+# target to preprocess a source file
+src/TrajectoryGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.i
+.PHONY : src/TrajectoryGenerator.cpp.i
+
+src/TrajectoryGenerator.s: src/TrajectoryGenerator.cpp.s
+
+.PHONY : src/TrajectoryGenerator.s
+
+# target to generate assembly for a file
+src/TrajectoryGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.s
+.PHONY : src/TrajectoryGenerator.cpp.s
 
 src/hw/road.o: src/hw/road.cpp.o
 
@@ -378,15 +378,15 @@ help:
 	@echo "... src/Behavior.o"
 	@echo "... src/Behavior.i"
 	@echo "... src/Behavior.s"
-	@echo "... src/JMTGenerator.o"
-	@echo "... src/JMTGenerator.i"
-	@echo "... src/JMTGenerator.s"
 	@echo "... src/Prediction.o"
 	@echo "... src/Prediction.i"
 	@echo "... src/Prediction.s"
 	@echo "... src/StateMachine.o"
 	@echo "... src/StateMachine.i"
 	@echo "... src/StateMachine.s"
+	@echo "... src/TrajectoryGenerator.o"
+	@echo "... src/TrajectoryGenerator.i"
+	@echo "... src/TrajectoryGenerator.s"
 	@echo "... src/hw/road.o"
 	@echo "... src/hw/road.i"
 	@echo "... src/hw/road.s"

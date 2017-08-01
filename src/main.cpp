@@ -306,13 +306,34 @@ int main() {
 }
 
 void updateRoad(json fusion) {
+  map<int, Vehicle>::iterator it;
 
   for (auto& element : fusion) {
     cout << element << '\n';
-    cout << element.size() << '\n';
-    cout << element[0] << '\n';
+    int lane = element[6].get<double>()/4;
+		cout << "d " << element[6] << " Lane " << lane << '\n';
+    double s = element[5].get<double>();
+    double d = element[6].get<double>();
+    double vx = element[3].get<double>();
+    double vy = element[4].get<double>();
+    int vehicleId = element[0].get<int>();
 
+    //  Add only lanes on right side
+    if (0 <= lane <=2) {
+      it = road.vehicles.find(vehicleId);
+      if (it != road.vehicles.end()) {
+        Vehicle vehicle = it->second;
+        vehicle.update(lane, s, d, vx, vy, 0);
+      } else {
+        Vehicle vehicle = Vehicle(lane, s, d, vx, vy, 0);
+        vehicle.state = "CS";
+        road.vehicles.insert(std::pair<int, Vehicle>(vehicleId, vehicle));
+      }
+    }
   }
+	road.vehicles_added = road.vehicles.size();
+	cout << "number of vehicles added " << 	road.vehicles_added << endl;
+
 
 }
 

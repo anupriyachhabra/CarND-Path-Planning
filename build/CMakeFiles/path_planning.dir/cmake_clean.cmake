@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/path_planning.dir/src/Behavior.cpp.o"
   "CMakeFiles/path_planning.dir/src/utils/CoefficientSolver.cpp.o"
   "CMakeFiles/path_planning.dir/src/StateMachine.cpp.o"
-  "CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o"
+  "CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o"
   "CMakeFiles/path_planning.dir/src/utils/CostFunctions.cpp.o"
   "CMakeFiles/path_planning.dir/src/hw/vehicle.cpp.o"
   "CMakeFiles/path_planning.dir/src/hw/road.cpp.o"

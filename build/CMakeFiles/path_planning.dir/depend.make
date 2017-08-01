@@ -4,14 +4,14 @@
 CMakeFiles/path_planning.dir/src/Behavior.cpp.o: ../src/Behavior.cpp
 CMakeFiles/path_planning.dir/src/Behavior.cpp.o: ../src/Behavior.h
 
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o: ../src/JMTGenerator.cpp
-CMakeFiles/path_planning.dir/src/JMTGenerator.cpp.o: ../src/JMTGenerator.h
-
 CMakeFiles/path_planning.dir/src/Prediction.cpp.o: ../src/Prediction.cpp
 CMakeFiles/path_planning.dir/src/Prediction.cpp.o: ../src/Prediction.h
 
 CMakeFiles/path_planning.dir/src/StateMachine.cpp.o: ../src/StateMachine.cpp
 CMakeFiles/path_planning.dir/src/StateMachine.cpp.o: ../src/StateMachine.h
+
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o: ../src/TrajectoryGenerator.cpp
+CMakeFiles/path_planning.dir/src/TrajectoryGenerator.cpp.o: ../src/TrajectoryGenerator.h
 
 CMakeFiles/path_planning.dir/src/hw/road.cpp.o: ../src/hw/road.cpp
 CMakeFiles/path_planning.dir/src/hw/road.cpp.o: ../src/hw/road.h

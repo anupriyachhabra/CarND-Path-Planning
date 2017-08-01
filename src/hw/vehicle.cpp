@@ -17,14 +17,35 @@ Vehicle::Vehicle(int lane, int s, int v, int a) {
 
   this->lane = lane;
   this->s = s;
-  this->v = v;
+  this->vx = v;
   this->a = a;
   state = "CS";
   max_acceleration = -1;
 
 }
 
+Vehicle::Vehicle(int lane, double s, double d, double vx, double vy, int a) {
+  this->lane = lane;
+  this->s = s;
+  this->vx = vx;
+  this->vy = vy;
+  this->a = a;
+  state = "CS";
+  max_acceleration = -1;
+}
+
+
 Vehicle::~Vehicle() {}
+
+void Vehicle::update(int lane, double s, double d, double vx, double vy, int a) {
+  this->lane = lane;
+  this->s = s;
+  this->vx = vx;
+  this->vy = vy;
+  this->a = a;
+  state = "CS";
+  max_acceleration = -1;
+}
 
 // TODO - Implement this method.
 void Vehicle::update_state(map<int,vector < vector<int> > > predictions) {
@@ -77,9 +98,9 @@ void Vehicle::update_state(map<int,vector < vector<int> > > predictions) {
       state = "LCR";
     else
       state = "PLCR";
-  if (v < target_speed)
+  if (vx < target_speed)
     max_acceleration = 2;
-  else if (v > target_speed)
+  else if (vx > target_speed)
     max_acceleration = -1;
 
   std::cout << "state" << state << endl;
@@ -105,7 +126,7 @@ string Vehicle::display() {
 
   oss << "s:    " << this->s << "\n";
   oss << "lane: " << this->lane << "\n";
-  oss << "v:    " << this->v << "\n";
+  oss << "v:    " << this->vx << "\n";
   oss << "a:    " << this->a << "\n";
 
   return oss.str();
@@ -113,8 +134,8 @@ string Vehicle::display() {
 
 void Vehicle::increment(int dt = 1) {
 
-  this->s += this->v * dt;
-  this->v += this->a * dt;
+  this->s += this->vx * dt;
+  this->vx += this->a * dt;
 }
 
 vector<int> Vehicle::state_at(int t) {
@@ -122,8 +143,8 @@ vector<int> Vehicle::state_at(int t) {
   /*
     Predicts state of vehicle in t seconds (assuming constant acceleration)
     */
-  int s = this->s + this->v * t + this->a * t * t / 2;
-  int v = this->v + this->a * t;
+  int s = this->s + this->vx * t + this->a * t * t / 2;
+  int v = this->vx + this->a * t;
   return {this->lane, s, v, this->a};
 }
 
@@ -196,7 +217,7 @@ void Vehicle::realize_constant_speed() {
 
 int Vehicle::_max_accel_for_lane(map<int,vector<vector<int> > > predictions, int lane, int s) {
 
-int delta_v_til_target = target_speed - v;
+int delta_v_til_target = target_speed - vx;
 int max_acc = min(max_acceleration, delta_v_til_target);
 
 map<int, vector<vector<int> > >::iterator it = predictions.begin();
@@ -230,7 +251,7 @@ leading = in_front[i];
 }
 
 int next_pos = leading[1][1];
-int my_next = s + this->v;
+int my_next = s + this->vx;
 int separation_next = next_pos - my_next;
 int available_room = separation_next - preferred_buffer;
 max_acc = min(max_acc, available_room);
@@ -292,7 +313,7 @@ nearest_behind = at_behind[i];
 }
 }
 int target_vel = nearest_behind[1][1] - nearest_behind[0][1];
-int delta_v = this->v - target_vel;
+int delta_v = this->vx - target_vel;
 int delta_s = this->s - nearest_behind[0][1];
 if(delta_v != 0)
 {
@@ -339,3 +360,5 @@ vector<vector<int> > Vehicle::generate_predictions(int horizon = 10) {
   return predictions;
 
 }
+
+
