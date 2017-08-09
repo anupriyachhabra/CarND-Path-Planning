@@ -10,6 +10,7 @@
 #include "json.hpp"
 #include "hw/road.h"
 #include "utils/spline.h"
+#include "Behavior.h"
 
 
 using namespace std;
@@ -24,6 +25,8 @@ double rad2deg(double x) { return x * 180 / pi(); }
 void updateRoad(json fusion);
 
 Road road;
+Behavior behavior;
+
 // Checks if the SocketIO event has JSON data.
 // If there is data the JSON object in string format will be returned,
 // else the empty string "" will be returned.
@@ -242,6 +245,13 @@ int main() {
             int nextWayPoint = NextWaypoint(car_x, car_y, car_yaw, map_waypoints_x, map_waypoints_y);
             double next_x = map_waypoints_x[nextWayPoint];
             double next_y = map_waypoints_y[nextWayPoint];
+            double next_s = map_waypoints_s[nextWayPoint];
+						int num_steps = (int)(next_s - car_s);
+
+						vector<double> car_state = {car_x, car_y, car_s, car_d, car_yaw, car_speed};
+						vector<vector<double>> path = behavior.planRoute(road, car_state, next_s);
+
+
 
           	json msgJson;
 
