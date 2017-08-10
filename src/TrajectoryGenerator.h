@@ -5,14 +5,18 @@
 #ifndef PATH_PLANNING_JMTGENERATOR_H
 #define PATH_PLANNING_JMTGENERATOR_H
 #include <vector>
+#include "utils/helpers.h"
+#include "hw/road.h"
 
 using namespace::std;
 
 class TrajectoryGenerator {
 
 public:
-  vector<vector<double>> generateTrajectories(vector<double> start_s, vector<double> start_d, double target_s,
-                                              double target_d, int num_steps);
+  vector<vector<double>> generateTrajectories(vector<double> car_state, vector<double> previous_path_x,
+                                              vector<double> previous_path_y, int target_lane);
+  helpers helper;
+  Road road;
 
 };
 

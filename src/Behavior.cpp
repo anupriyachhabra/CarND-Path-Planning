@@ -5,8 +5,11 @@
 #include "Behavior.h"
 
 
-vector<vector<double>> Behavior::planRoute(Road road, vector<double> car_state, double target_s) {
+vector<vector<double>> Behavior::planRoute(Road road, vector<double> car_state,
+                                           vector<double> previous_path_x, vector<double> previous_path_y) {
 
-
-  return vector<vector<double>>();
+  tgtr.road = road;
+  vector<vector<double>> trajectory = tgtr.generateTrajectories(car_state, previous_path_x, previous_path_y, lane);
+  // or there can be multiple trajectories above to choose from
+  return trajectory;
 }

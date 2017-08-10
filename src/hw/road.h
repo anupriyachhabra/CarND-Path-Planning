@@ -35,37 +35,22 @@ public:
 
   vector<int> lane_speeds;
 
-  int speed_limit;
-
-  double density;
-
-  int camera_center;
-
   map<int, Vehicle> vehicles;
 
   int vehicles_added = 0;
-
-  /**
-  * Constructor
-  */
-  Road(int speed_limit, double traffic_density, vector<int> lane_speeds);
 
   /**
   * Destructor
   */
   virtual ~Road();
 
-  Vehicle get_ego();
-
-  void populate_traffic();
-
   void advance();
 
   void display(int timestep);
 
-  void add_ego(int lane_num, int s, vector<int> config_data);
-
-  void cull();
+  vector<double> map_waypoints_x;
+  vector<double> map_waypoints_y;
+  vector<double> map_waypoints_s;
 
 };
 

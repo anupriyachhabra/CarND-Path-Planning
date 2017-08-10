@@ -7,7 +7,7 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-set(sources src/main.cpp src/Prediction.cpp src/Prediction.h src/Behavior.cpp src/Behavior.h src/utils/CoefficientSolver.cpp src/utils/CoefficientSolver.h src/StateMachine.cpp src/StateMachine.h src/TrajectoryGenerator.cpp src/TrajectoryGenerator.h src/utils/CostFunctions.cpp src/utils/CostFunctions.h src/hw/vehicle.cpp src/hw/vehicle.h src/hw/road.cpp src/hw/road.h)
+set(sources src/main.cpp src/Prediction.cpp src/Prediction.h src/Behavior.cpp src/Behavior.h src/utils/CoefficientSolver.cpp src/utils/CoefficientSolver.h src/StateMachine.cpp src/StateMachine.h src/TrajectoryGenerator.cpp src/TrajectoryGenerator.h src/utils/CostFunctions.cpp src/utils/CostFunctions.h src/hw/vehicle.cpp src/hw/vehicle.h src/hw/road.cpp src/hw/road.h src/utils/helpers.h)
 
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
