@@ -116,9 +116,12 @@ int main() {
           	auto sensor_fusion = j[1]["sensor_fusion"];
             updateRoad(sensor_fusion);
 
-						vector<double> car_state = {car_x, car_y, car_s, car_d, car_yaw, car_speed};
-						vector<vector<double>> path = behavior.planRoute(road, car_state, previous_path_x, previous_path_y);
-            cout << "path size" << path.size() << endl;
+          cout << "car_s " << car_s << endl;
+
+						vector<double> car_state = {car_x, car_y, car_s, car_d, car_yaw, car_speed, car_d/4};
+
+						vector<vector<double>> path = behavior.planRoute(road, car_state, previous_path_x, previous_path_y, end_path_s);
+            //cout << "path size" << path.size() << endl;
 
 
           	json msgJson;
@@ -127,7 +130,7 @@ int main() {
           	vector<double> next_y_vals;
 
             for (auto& xy_cordinate : path) {
-              cout << xy_cordinate[0] << endl;
+              //cout << xy_cordinate[0] << endl;
               next_x_vals.push_back(xy_cordinate[0]);
               next_y_vals.push_back(xy_cordinate[1]);
             }
@@ -205,15 +208,18 @@ void updateRoad(json fusion) {
       if (it != road.vehicles.end()) {
         Vehicle vehicle = it->second;
         vehicle.update(lane, s, d, vx, vy, 0);
+        it->second = vehicle;
+        //cout << "updated vehicle" << vehicle.display() << endl;
       } else {
         Vehicle vehicle = Vehicle(lane, s, d, vx, vy, 0);
         vehicle.state = "CS";
         road.vehicles.insert(std::pair<int, Vehicle>(vehicleId, vehicle));
+        //cout << "inserted vehicle" << vehicle.display() << endl;
       }
     }
   }
 	road.vehicles_added = road.vehicles.size();
-	cout << "number of vehicles added " << 	road.vehicles_added << endl;
+	//cout << "number of vehicles added " << 	road.vehicles_added << endl;
 
 
 }

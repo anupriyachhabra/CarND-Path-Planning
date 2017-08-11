@@ -25,15 +25,7 @@ public:
 
   Road();
 
-  int update_width = 70;
-
-  string ego_rep = " *** ";
-
   int ego_key = -1;
-
-  int num_lanes;
-
-  vector<int> lane_speeds;
 
   map<int, Vehicle> vehicles;
 
@@ -51,6 +43,8 @@ public:
   vector<double> map_waypoints_x;
   vector<double> map_waypoints_y;
   vector<double> map_waypoints_s;
+
+  double speed_limit = 49.5; //mph;
 
 };
 

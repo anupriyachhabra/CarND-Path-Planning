@@ -100,7 +100,7 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
     y_point += ref_y;
 
     vector<double> path { x_point, y_point };
-    cout << "x_point" << x_point << endl;
+    //cout << "x_point" << x_point << endl;
     trajectory.push_back(path);
   }
 

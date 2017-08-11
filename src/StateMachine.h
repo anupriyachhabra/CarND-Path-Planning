@@ -7,6 +7,10 @@
 
 
 class StateMachine {
+  enum State { KL, LCL, LCR };
+
+public:
+  //void evaluate_next_state();
 
 };
 
