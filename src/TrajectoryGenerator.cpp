@@ -3,9 +3,11 @@
 //
 
 #include "TrajectoryGenerator.h"
+#include "utils/spline.h"
 
 vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> car_state, vector<double> previous_path_x,
-                                                                 vector<double> previous_path_y, int target_lane) {
+                                                                 vector<double> previous_path_y, int target_lane,
+                                                                 double target_vel) {
   //lets have 3 values for next car_d (L, R, C)
   vector<double> next_d = {2.0, 6.0, 10.0};
   double timestep = 0.2;
@@ -56,6 +58,51 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
     ptsy.push_back(next_point[1]);
   }
 
+  // transform coordinates to vehicle's to make the math easier
+  helper.transformToVehicleCoord(ptsx, ptsy, ref_x, ref_y, ref_yaw);
 
-  return vector<vector<double>>();
+  //Generate Path
+  // Add previous_path for smoothing
+  for (int i = 0; i < previous_path_x.size(); i++){
+
+    vector<double> path { previous_path_x[i], previous_path_y[i] };
+    trajectory.push_back(path);
+  }
+
+  tk::spline s;
+  s.set_points(ptsx, ptsy);
+
+  // Break spline points so that we travel at reference velocity
+  // We chooose 30m as target below to calculate at some not so far distance in future
+  double target_x = 30.0;
+  double target_y = s(target_x);
+  double target_dist = sqrt((target_x*target_x)+(target_y*target_y));
+
+  double x_add_on = 0;
+
+  //fill up rest of the trajectory makking sure that the new generated points dont make the target_velocity go high
+  for (int i = 0; i < 50- previous_path_x.size(); i++) {
+
+    double N = (target_dist/(0.02*target_vel/2.24));
+    double x_point = x_add_on+(target_x)/N;
+    double y_point = s(x_point);
+
+    x_add_on = x_point; // we want future points to be greater than the point already generated
+
+    double x_ref = x_point;
+    double y_ref = y_point;
+
+    // rotate to vehicle coordinates before adding to trajectory
+    x_point = (x_ref*cos(ref_yaw) - y_ref*sin(ref_yaw));
+    y_point = (x_ref*sin(ref_yaw) + y_ref*cos(ref_yaw));
+
+    x_point += ref_x;
+    y_point += ref_y;
+
+    vector<double> path { x_point, y_point };
+    cout << "x_point" << x_point << endl;
+    trajectory.push_back(path);
+  }
+
+  return trajectory;
 }

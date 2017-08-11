@@ -144,4 +144,20 @@ public:
 
   }
 
+  void transformToVehicleCoord(vector<double> &ptsx, vector<double> &ptsy, double ref_x, double ref_y, double ref_yaw) {
+
+    // shift car reference to 0 degrees- so that everything looks simple to car
+
+    for (int i = 0; i < ptsx.size(); i++) {
+      double shift_x = ptsx[i] - ref_x;
+      double shift_y = ptsy[i] - ref_y;
+
+      ptsx[i] = (shift_x * cos(0-ref_yaw) - shift_y * sin(0-ref_yaw));
+      ptsy[i] = (shift_x * sin(0-ref_yaw) + shift_y * cos(0-ref_yaw));
+    }
+
+
+    return;
+  }
+
 };

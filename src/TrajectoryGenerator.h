@@ -14,7 +14,7 @@ class TrajectoryGenerator {
 
 public:
   vector<vector<double>> generateTrajectories(vector<double> car_state, vector<double> previous_path_x,
-                                              vector<double> previous_path_y, int target_lane);
+                                              vector<double> previous_path_y, int target_lane, double target_vel);
   helpers helper;
   Road road;
 

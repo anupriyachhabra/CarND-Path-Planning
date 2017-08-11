@@ -118,13 +118,16 @@ int main() {
 
 						vector<double> car_state = {car_x, car_y, car_s, car_d, car_yaw, car_speed};
 						vector<vector<double>> path = behavior.planRoute(road, car_state, previous_path_x, previous_path_y);
+            cout << "path size" << path.size() << endl;
 
 
           	json msgJson;
 
           	vector<double> next_x_vals;
           	vector<double> next_y_vals;
+
             for (auto& xy_cordinate : path) {
+              cout << xy_cordinate[0] << endl;
               next_x_vals.push_back(xy_cordinate[0]);
               next_y_vals.push_back(xy_cordinate[1]);
             }
