@@ -80,7 +80,7 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
 
   double x_add_on = 0;
 
-  //fill up rest of the trajectory makking sure that the new generated points dont make the target_velocity go high
+  //fill up rest of the trajectory making sure that the new generated points dont make the target_velocity go high
   for (int i = 0; i < 50- previous_path_x.size(); i++) {
 
     double N = (target_dist/(0.02*target_vel/2.24));

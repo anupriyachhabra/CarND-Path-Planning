@@ -18,14 +18,15 @@ vector<vector<double>> Behavior::planRoute(Road road, vector<double> car_state,
   int current_car_lane = car_state[6];
 
   this->lane = next_lane(car_state);
-  this->ref_vel = next_velocity(road);
+  bool is_lane_change = (lane != current_car_lane);
+  this->ref_vel = next_velocity(road, is_lane_change);
 
   cout << "lane " << lane << endl;
   cout << "ref_vel " << ref_vel << endl;
 
 
-  vector<vector<double>> trajectory = tgtr.generateTrajectories(car_state, previous_path_x, previous_path_y, lane,
-                                                                ref_vel);
+  vector<vector<double>> trajectory = tgtr.generateTrajectories(car_state, previous_path_x, previous_path_y, this->lane,
+                                                                this->ref_vel);
 
   return trajectory;
 }
@@ -59,11 +60,12 @@ int Behavior::next_lane(vector<double> car_state) {
   return lane;
 }
 
-double Behavior::next_velocity(Road road) {
+double Behavior::next_velocity(Road road, bool is_lane_change) {
   double velocity = ref_vel;
-  if (predictor.all_lane_collision && velocity > 1.0) {
+  if ((predictor.all_lane_collision || is_lane_change) && velocity > 1.0) {
     velocity -= 0.224;
-  } else if (velocity < road.speed_limit){
+  } // increase belocity if its less than road limit but not if a lane change is expected
+  else if (velocity < road.speed_limit){
     velocity += 0.224;
   }
   return velocity;

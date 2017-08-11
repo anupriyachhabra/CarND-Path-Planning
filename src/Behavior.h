@@ -22,11 +22,11 @@ public:
   // lanes are 0, 1, 2
   int lane = 1;
   //
-  double ref_vel = 0.0; //mph
+  double ref_vel = 0.5; //mph
 
   int next_lane(vector<double> vector);
 
-  double next_velocity(Road road);
+  double next_velocity(Road road, bool is_lane_change);
 };
 
 
