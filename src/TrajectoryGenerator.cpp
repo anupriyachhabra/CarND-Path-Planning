@@ -80,10 +80,12 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
 
   double x_add_on = 0;
 
+  double vel_increment = (target_vel - car_state[5])/(50- previous_path_x.size());
+  double vel = car_state[5] + vel_increment;
   //fill up rest of the trajectory making sure that the new generated points dont make the target_velocity go high
   for (int i = 0; i < 50- previous_path_x.size(); i++) {
 
-    double N = (target_dist/(0.02*target_vel/2.24));
+    double N = (target_dist/(0.02*vel/2.24));
     double x_point = x_add_on+(target_x)/N;
     double y_point = s(x_point);
 
@@ -102,6 +104,9 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
     vector<double> path { x_point, y_point };
     //cout << "x_point" << x_point << endl;
     trajectory.push_back(path);
+
+    vel += vel_increment;
+    if (vel > road.speed_limit) vel = road.speed_limit;
   }
 
   return trajectory;
