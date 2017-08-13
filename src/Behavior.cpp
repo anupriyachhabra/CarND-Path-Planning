@@ -15,23 +15,30 @@ vector<vector<double>> Behavior::planRoute(Road road, vector<double> car_state,
   predictor.end_path_s = end_path_s;
   predictor.all_lane_collision = false;
 
-  int current_car_lane = car_state[6];
-
   if (state != StateMachine::State::PLCL && state != StateMachine::State::PLCR) {
     this->target_lane = next_lane(car_state);
   }
-  StateMachine::State next_state = stateMachine.evaluate_next_state(state, target_lane, lane, predictor.all_lane_collision, car_state[5]);
-  if (next_state == StateMachine::State::LCL || next_state == StateMachine::State::LCR){
+  StateMachine::State next_state = stateMachine.evaluate_next_state(state, target_lane, lane, predictor.all_lane_collision,
+                                                                    car_state[5]);
+  //to find road curve
+  int closestWayPoint = helper.ClosestWaypoint(car_state[0], car_state[1], road.map_waypoints_x, road.map_waypoints_y);
+  double dx = road.map_waypoints_dx[closestWayPoint];
+  double dy = road.map_waypoints_dy[closestWayPoint];
+  double road_curve = atan2(dy, dx);
+  cout << "road curve " << road_curve << endl;
+  if ((next_state == StateMachine::State::LCL || next_state == StateMachine::State::LCR) && fabs(road_curve) < 1.7){
     this->lane = target_lane;
+  }else {
+    this->ref_vel = next_velocity(road);
   }
   state = next_state;
-  bool is_lane_change = (target_lane != current_car_lane);
-  this->ref_vel = next_velocity(road, is_lane_change);
 
   cout << "lane " << lane << endl;
   cout << "ref_vel " << ref_vel << endl;
+  cout << "car_vel " << car_state[5] << endl;
+  cout << "car_yaw " << car_state[4] << endl;
   cout << "target_lane " << target_lane << endl;
-  cout << "all_collisios " << predictor.all_lane_collision << endl;
+  cout << "all_collision " << predictor.all_lane_collision << endl;
   cout << "state " << state << endl;
 
 
@@ -71,7 +78,7 @@ int Behavior::next_lane(vector<double> car_state) {
   return lane;
 }
 
-double Behavior::next_velocity(Road road, bool is_lane_change) {
+double Behavior::next_velocity(Road road) {
   double velocity = ref_vel;
   if ((predictor.all_lane_collision || state != StateMachine::State::KL) && velocity > 1.0) {
     velocity -= 0.224;

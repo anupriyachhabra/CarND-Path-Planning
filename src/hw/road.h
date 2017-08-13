@@ -43,6 +43,8 @@ public:
   vector<double> map_waypoints_x;
   vector<double> map_waypoints_y;
   vector<double> map_waypoints_s;
+  vector<double> map_waypoints_dx;
+  vector<double> map_waypoints_dy;
 
   double speed_limit = 49.0; //mph;
 

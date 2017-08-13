@@ -77,6 +77,8 @@ int main() {
   road.map_waypoints_x = map_waypoints_x;
   road.map_waypoints_y = map_waypoints_y;
   road.map_waypoints_s = map_waypoints_s;
+  road.map_waypoints_dx = map_waypoints_dx;
+  road.map_waypoints_dy = map_waypoints_dy;
 
   h.onMessage([&map_waypoints_x,&map_waypoints_y,&map_waypoints_s,&map_waypoints_dx,&map_waypoints_dy](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
                      uWS::OpCode opCode) {
@@ -116,7 +118,7 @@ int main() {
           	auto sensor_fusion = j[1]["sensor_fusion"];
             updateRoad(sensor_fusion);
 
-          cout << "car_s " << car_s << endl;
+            cout << "car_s " << car_s << endl;
 
 						vector<double> car_state = {car_x, car_y, car_s, car_d, car_yaw, car_speed, car_d/4};
 

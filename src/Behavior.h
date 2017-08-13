@@ -18,6 +18,8 @@ class Behavior {
   Prediction predictor;
   StateMachine::State state;
   StateMachine stateMachine;
+  helpers helper;
+
 
 public:
   vector<vector<double>> planRoute(Road road, vector<double> car_state,
@@ -31,7 +33,7 @@ public:
 
   int next_lane(vector<double> vector);
 
-  double next_velocity(Road road, bool is_lane_change);
+  double next_velocity(Road road);
 };
 
 

@@ -62,8 +62,11 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
   helper.transformToVehicleCoord(ptsx, ptsy, ref_x, ref_y, ref_yaw);
 
   //Generate Path
-  // Add previous_path for smoothing
-  for (int i = 0; i < previous_path_x.size(); i++){
+  // Add previous_path for smoothing- use only 10 previous points
+
+  cout << "previous path size " << previous_path_x.size() << endl;
+  int previous_points = min((int)previous_path_x.size(), 50);
+  for (int i = 0; i < previous_points; i++){
 
     vector<double> path { previous_path_x[i], previous_path_y[i] };
     trajectory.push_back(path);
@@ -80,10 +83,10 @@ vector<vector<double>> TrajectoryGenerator::generateTrajectories(vector<double> 
 
   double x_add_on = 0;
 
-  double vel_increment = (target_vel - car_state[5])/(50- previous_path_x.size());
+  double vel_increment = (target_vel - car_state[5])/(50- previous_points);
   double vel = car_state[5] + vel_increment;
   //fill up rest of the trajectory making sure that the new generated points dont make the target_velocity go high
-  for (int i = 0; i < 50- previous_path_x.size(); i++) {
+  for (int i = 0; i < 50-previous_points; i++) {
 
     double N = (target_dist/(0.02*vel/2.24));
     double x_point = x_add_on+(target_x)/N;
