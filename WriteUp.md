@@ -1,0 +1,4 @@
+- Added all vehicles on road - Done
+- Then start checking vehicles current state and how far it is from closest way point - Done
+- Then check what lane can it go to be in d direction to reach the target (behavior planner)
+- then feed the required s and d to trajectory planner
