@@ -1,7 +1,7 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
 
-Writeup
+### For code explanation refer to [WriteUp](./WriteUp.md)
 
 - Added all vehicles on road - Done
 - Then start checking vehicles current state and how far it is from closest way point - Done
