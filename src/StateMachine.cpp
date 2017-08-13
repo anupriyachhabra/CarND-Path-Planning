@@ -17,7 +17,7 @@ StateMachine::evaluate_next_state(StateMachine::State cur_state, int target_lane
       break;
     case PLCL:
       if ((target_lane < cur_lane)) {
-        if (all_collision || vel > 35.0) state = PLCL;
+        if (all_collision || vel > 35.5) state = PLCL;
         else state = LCL;
       }
       break;
@@ -26,7 +26,7 @@ StateMachine::evaluate_next_state(StateMachine::State cur_state, int target_lane
       break;
     case PLCR:
       if ((target_lane > cur_lane)) {
-        if (all_collision || vel > 35.0) state = PLCR;
+        if (all_collision || vel > 35.5) state = PLCR;
         else state = LCR;
       }
       break;

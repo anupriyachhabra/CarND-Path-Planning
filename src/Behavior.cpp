@@ -21,12 +21,14 @@ vector<vector<double>> Behavior::planRoute(Road road, vector<double> car_state,
   StateMachine::State next_state = stateMachine.evaluate_next_state(state, target_lane, lane, predictor.all_lane_collision,
                                                                     car_state[5]);
   //to find road curve
-  int closestWayPoint = helper.ClosestWaypoint(car_state[0], car_state[1], road.map_waypoints_x, road.map_waypoints_y);
+  int closestWayPoint = helper.NextWaypoint(car_state[0], car_state[1], car_state[4], road.map_waypoints_x, road.map_waypoints_y);
   double dx = road.map_waypoints_dx[closestWayPoint];
   double dy = road.map_waypoints_dy[closestWayPoint];
   double road_curve = atan2(dy, dx);
-  cout << "road curve " << road_curve << endl;
-  if ((next_state == StateMachine::State::LCL || next_state == StateMachine::State::LCR) && fabs(road_curve) < 1.7){
+  cout << "road curve in radians " << road_curve << " degrees " << helper.rad2deg(road_curve) << endl;
+
+  // dont change lanes on curving road.
+  if ((next_state == StateMachine::State::LCL || next_state == StateMachine::State::LCR) && fabs(road_curve) < 1.6){
     this->lane = target_lane;
   }else {
     this->ref_vel = next_velocity(road);

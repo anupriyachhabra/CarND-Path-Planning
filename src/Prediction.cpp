@@ -30,7 +30,7 @@ bool Prediction::will_collide(int lane, vector<double> car_state) {
 
       cout << " future vehicle s " << vehicle_s << " future us s " << car_s << endl;
       //now check if future vehicle s will be greater than car_s and if distance between them is too less
-      if (((v.s > car_state[2]) && (fabs(vehicle_s - car_s) < 30.0)) || fabs(vehicle_s - car_s) < 6.0) {
+      if (((vehicle_s > car_s) && ((vehicle_s - car_s) < 30.0)) || fabs(vehicle_s - car_s) < 6.0) {
         collision = true;
         cout << "collision true";
         break;
