@@ -25,8 +25,6 @@ public:
 
   Road();
 
-  int ego_key = -1;
-
   map<int, Vehicle> vehicles;
 
   int vehicles_added = 0;
@@ -35,10 +33,6 @@ public:
   * Destructor
   */
   virtual ~Road();
-
-  void advance();
-
-  void display(int timestep);
 
   vector<double> map_waypoints_x;
   vector<double> map_waypoints_y;

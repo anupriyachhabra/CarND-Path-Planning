@@ -214,7 +214,6 @@ void updateRoad(json fusion) {
         //cout << "updated vehicle" << vehicle.display() << endl;
       } else {
         Vehicle vehicle = Vehicle(lane, s, d, vx, vy, 0);
-        vehicle.state = "CS";
         road.vehicles.insert(std::pair<int, Vehicle>(vehicleId, vehicle));
         //cout << "inserted vehicle" << vehicle.display() << endl;
       }
