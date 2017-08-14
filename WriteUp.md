@@ -9,7 +9,7 @@ simulator environment.
 Following is the explanation of the different modules of code along with main.cpp
 
 ### main.cpp
-`main.cpp` is the driver files of this project which gets data from simulator including
+`main.cpp` is the driver file of this project which gets data from simulator including
 - Map of simulator with `x, y, s, dx, dy` points along the path.
 - Current location of car - It is represented as following
 	```double car_x = j[1]["x"];
@@ -63,6 +63,10 @@ they make the calculations easier.
 
 ![Frenet Coordinates](./data/Frenet.png)
 
+car_s is the speed of the car and the last entry car_d/4 is representative of the current lane of the car. We 
+are storing all this information in one place so that we dont have to construct it again and again and pass it 
+through multiple method arguments.
+
 
 
 ### Behavior Module
@@ -113,11 +117,11 @@ a `State` of the car and the State Machine helps to determine the next state. Al
 in the file name `StateMachine.h` by an enum called `State` as shown below.
  `enum State { KL, LCL, PLCL, PLCR, LCR };`
 The states stand for
-KL - Keep Lane
-LCL - Lane change Left (Change to left lane in this cycle)
-PLCL - Prepare Lane Change Left (Prepare to change lane to left when its safe to do so)
-PLCR - Prepare Lane Change Right (Prepare to change lane to right when its safe to do so)
-LCR - Lane Change Right (Change to right lane in this cycle)
+- KL - Keep Lane
+- LCL - Lane change Left (Change to left lane in this cycle)
+- PLCL - Prepare Lane Change Left (Prepare to change lane to left when its safe to do so)
+- PLCR - Prepare Lane Change Right (Prepare to change lane to right when its safe to do so)
+- LCR - Lane Change Right (Change to right lane in this cycle)
 
 - The StateMachine has a method called `evaluate_next_state` which takes in the current lane, target lane, car velocity and
 collisions flag to determine the next state of the car
@@ -128,17 +132,21 @@ prediction to decide the next lane to send to the trajectory module
 
 ### Trajectory Generation Module
 The Trajectory generation module for this project is in a file named `TrajectoryGenerator.cpp`. 
-- This module takes in inputs from behavior module and generate a trajectory in terms of list of`x,y` points for the 
+- This module takes in inputs from behavior module and generate a trajectory in terms of list of `x,y` points for the 
 vehicle to follow.
 - The main method in this module is `generateTrajectories` defined in `TrajectoryGenerator.cpp`. It takes in the 
 current [car_state](carstate), list of previous x and y points, target lane and target velocity.
-- It then preemptively adds the previous points to the path is they are present, if not it generates a couple of previous 
+- It then preemptively adds the previous points to the path if they are present, if not it generates a couple of previous 
 points based on cars' curent state. These previous points are added to make the transition from old trajectory to the
 new trajectory smoother.
-- Then its converts the cars current state in vehicle coordinates so thats its easirt ot extrapolate the next points.
-- Then it extrapolates 3 next points at 30m intervals and uses a spline to make a smooth trajectory to those points.
-- The points are added to the path along with the list of previous pointsand added to the final path returned to the 
+- Then its converts the cars current state in vehicle coordinates so that  its easier to extrapolate the next points.
+- Then it extrapolates 3 next points at 30m intervals and adds them to a spline. Refer this [link](https://en.wikipedia.org/wiki/Spline_(mathematics)) 
+for more details on spline.
+- A C++ library for splines is used in this project. It consists of a single header file named `spline.h` in folder `utils`.
+- The spline is used to make a smooth trajectory to the extrapolated points
+- The points are added to the path along with the list of previous points and added to the final path returned to the 
 behavior planner.
+- For more details on the trajectory planner and intuition behind refer to [project walkthrough video](https://en.wikipedia.org/wiki/Spline_(mathematics))
 
 
 
